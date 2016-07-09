@@ -1,0 +1,6 @@
+[submodule "deps/speexdsp"]
+	path = deps/speexdsp
+	url = https://github.com/r52/speexdsp.git
+[submodule "deps/obs-studio"]
+	path = deps/obs-studio
+	url = https://github.com/jp9000/obs-studio.git
