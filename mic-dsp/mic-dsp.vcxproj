@@ -64,18 +64,22 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)deps\libobs-bin-windows\64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)deps\libobs-bin-windows\64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)deps\libobs-bin-windows\32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)deps\libobs-bin-windows\32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)build\obs-plugins\$(PlatformArchitecture)bit\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\obs-plugins\$(PlatformArchitecture)bit\$(TargetName)$(TargetExt)</OutputFile>
     </Link>
+    <PostBuildEvent />
+    <PostBuildEvent />
+    <PostBuildEvent />
     <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">xcopy "$(ProjectDir)data" "$(TargetDir)$(ProjectName)" /e /y /i /r</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">xcopy "$(ProjectDir)data" "$(TargetDir)$(ProjectName)" /e /y /i /r</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xcopy "$(ProjectDir)data" "$(TargetDir)$(ProjectName)" /e /y /i /r</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy "$(ProjectDir)data" "$(TargetDir)$(ProjectName)" /e /y /i /r</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xcopy "$(ProjectDir)data" "$(SolutionDir)build\data\obs-plugins\$(ProjectName)" /e /y /i /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -83,9 +87,6 @@
     <ClCompile Include="noise-suppress-filter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\deps\obs-studio\build\libobs\libobs.vcxproj">
-      <Project>{4c90fee5-d08d-3852-9664-36f875874e1a}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\deps\speexdsp\win32\VS2015\libspeexdsp\libspeexdsp.vcxproj">
       <Project>{03207781-0d1c-4db3-a71d-45c608f28dbd}</Project>
     </ProjectReference>
