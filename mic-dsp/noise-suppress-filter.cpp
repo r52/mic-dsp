@@ -1,5 +1,8 @@
-#include <obs-module.h>
+#include <cstdint>
+#include <limits>
 #include <memory>
+
+#include <obs-module.h>
 #include <include/speex/speex_preprocess.h>
 
 #define do_log(level, format, ...) \
@@ -36,6 +39,9 @@ struct noise_suppress_data {
 
 #define SUP_MIN -60
 #define SUP_MAX 0
+
+static constexpr float c_32_to_16 = (float)std::numeric_limits<spx_int16_t>::max();
+static constexpr float c_16_to_32 = ((float)std::numeric_limits<spx_int16_t>::max() + 1.0f);
 
 static const char *noise_suppress_name(void *unused)
 {
@@ -132,19 +138,19 @@ static struct obs_audio_data *noise_suppress_filter_audio(void *data,
             // Set args
             speex_preprocess_ctl(ng->state[i], SPEEX_PREPROCESS_SET_NOISE_SUPPRESS, &ng->suppress_level);
 
-            // Convert down
+            // Convert to 16bit
             for (size_t j = 0; j < audio->frames; j++)
             {
-                ng->segment_buffer[i][j] = (spx_int16_t) (adata[i][j] * 32767.0f);
+                ng->segment_buffer[i][j] = (spx_int16_t) (adata[i][j] * c_32_to_16);
             }
 
             // Execute
             speex_preprocess_run(ng->state[i], ng->segment_buffer[i].get());
 
-            // Convert back
+            // Convert back to 32bit
             for (size_t j = 0; j < audio->frames; j++)
             {
-                adata[i][j] = ng->segment_buffer[i][j] / 32768.0f;
+                adata[i][j] = ng->segment_buffer[i][j] / c_16_to_32;
             }
         }
     }
