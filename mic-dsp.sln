@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mic-dsp", "mic-dsp\mic-dsp.vcxproj", "{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libspeexdsp", "deps\speexdsp\win32\VS2015\libspeexdsp\libspeexdsp.vcxproj", "{03207781-0D1C-4DB3-A71D-45C608F28DBD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mic-dsp", "mic-dsp\mic-dsp.vcxproj", "{639866AD-601D-4817-B8C5-7BA0A2C19C56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +15,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Debug|Win32.ActiveCfg = Debug|Win32
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Debug|Win32.Build.0 = Debug|Win32
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Debug|x64.ActiveCfg = Debug|x64
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Debug|x64.Build.0 = Debug|x64
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Release|Win32.ActiveCfg = Release|Win32
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Release|Win32.Build.0 = Release|Win32
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Release|x64.ActiveCfg = Release|x64
-		{FE63EE75-BA1B-461F-8AE2-80A0EEA25C12}.Release|x64.Build.0 = Release|x64
 		{03207781-0D1C-4DB3-A71D-45C608F28DBD}.Debug|Win32.ActiveCfg = Debug|Win32
 		{03207781-0D1C-4DB3-A71D-45C608F28DBD}.Debug|Win32.Build.0 = Debug|Win32
 		{03207781-0D1C-4DB3-A71D-45C608F28DBD}.Debug|x64.ActiveCfg = Debug|x64
@@ -31,6 +23,14 @@ Global
 		{03207781-0D1C-4DB3-A71D-45C608F28DBD}.Release|Win32.Build.0 = Release|Win32
 		{03207781-0D1C-4DB3-A71D-45C608F28DBD}.Release|x64.ActiveCfg = Release|x64
 		{03207781-0D1C-4DB3-A71D-45C608F28DBD}.Release|x64.Build.0 = Release|x64
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Debug|Win32.ActiveCfg = Debug|Win32
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Debug|Win32.Build.0 = Debug|Win32
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Debug|x64.ActiveCfg = Debug|x64
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Debug|x64.Build.0 = Debug|x64
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Release|Win32.ActiveCfg = Release|Win32
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Release|Win32.Build.0 = Release|Win32
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Release|x64.ActiveCfg = Release|x64
+		{639866AD-601D-4817-B8C5-7BA0A2C19C56}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
